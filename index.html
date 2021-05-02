@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introducción a RMarkdown</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="María Paula Caldas" />
+    <meta name="date" content="2021-05-08" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <script src="libs/fitvids/fitvids.min.js"></script>
+    <meta name="github-repo" content="https://github.com/mpaulacaldas/r-ladies-rmarkdown"/>
+    <meta name="twitter:title" content="Introducción a RMarkdown"/>
+    <meta name="twitter:description" content="Introducción a RMarkdown. Presentado en el meet-up de R-Ladies Puebla en 2021-05-08."/>
+    <meta name="twitter:url" content="https://mpaulacaldas.github.io/r-ladies-rmarkdown"/>
+    <meta name="twitter:image:src" content="https://raw.githubusercontent.com/mpaulacaldas/r-ladies-rmarkdown/gh-pages/social-card.png"/>
+    <meta name="twitter:image:alt" content="Introducción a RMarkdown. R-Ladies Puebla. María Paula Caldas. 2021-05-08"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@mapaulacaldas"/>
+    <meta name="twitter:site" content="@mapaulacaldas"/>
+    <meta property="og:title" content="Introducción a RMarkdown"/>
+    <meta property="og:description" content="Introducción a RMarkdown. Presentado en el meet-up de R-Ladies Puebla en 2021-05-08."/>
+    <meta property="og:url" content="https://mpaulacaldas.github.io/r-ladies-rmarkdown"/>
+    <meta property="og:image" content="https://raw.githubusercontent.com/mpaulacaldas/r-ladies-rmarkdown/gh-pages/social-card.png"/>
+    <meta property="og:image:alt" content="Introducción a RMarkdown. R-Ladies Puebla. María Paula Caldas. 2021-05-08"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="es_ES"/>
+    <meta property="article:author" content="María Paula Caldas"/>
+    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="mpc.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+class: title-slide, inverse, bottom
+background-image: url(https://images.unsplash.com/photo-1595341595379-cf1cb694ea1f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1484&amp;q=80)
+background-size: cover
+
+# Introducción a RMarkdown
+
+## R-Ladies Puebla
+
+### María Paula Caldas
+
+### 2021-05-08
+
+.right[
+Foto de [Karen Penroz](https://unsplash.com/photos/06ZTGDcAQFs)
+]
+
+---
+class: about-me, right, bottom
+
+
+&lt;img style="border-radius: 50%;" src="https://github.com/mpaulacaldas.png" width="150px"/&gt;
+
+## María Paula Caldas
+
+&lt;!-- ### Postdoctoral Research Scientist --&gt;
+
+&lt;!-- ### University of Pennsylvania, Philadelphia, PA, USA --&gt;
+
+
+[<i class="fas  fa-link "></i> mpaulacaldas.com](https://mpaulacaldas.com)&lt;br/&gt;
+[<i class="fab  fa-twitter "></i> mapaulacaldas](https://twitter.com/mapaulacaldas)&lt;br/&gt;
+[<i class="fab  fa-github "></i> mpaulacaldas](https://github.com/mpaulacaldas)&lt;br/&gt;
+
+---
+class: left, middle
+
+# Antes de comenzar
+
+- Slides: &lt;https://mpaulacaldas.github.io/r-ladies-rmarkdown&gt;
+- Código: &lt;https://github.com/mpaulacaldas/r-ladies-rmarkdown&gt;
+- RStudio Cloud: &lt;https://rstudio.cloud/project/2531715&gt;
+
+# Paquetes
+
+- Para este taller necesitaremos el paquete **rmarkdown**. No es necesario cargarlo o instalarlo explícitamente si usas RStudio.
+- Les mostraré el nuevo [editor visual de R Markdown](https://rstudio.github.io/visual-markdown-editing/?_ga=2.73026771.1763491766.1620455492-1963027167.1619987383#/) que viene en **RStudio v1.4**. No es necesario que tengas esta versión instalada para seguir el taller.
+
+---
+class: inverse, bottom, left
+
+# Introducción
+## ¿Qué es R Markdown?
+
+---
+background-image: url(https://github.com/rstudio/rmarkdown/raw/master/man/figures/logo.png)
+background-position: 1050px 20px
+background-size: 100px
+
+# ¿Qué es R Markdown?
+
+Es un **marco de escritura** para ciencia de datos, que combina:
+
+- Texto
+- Código
+- Resultados
+
+El término R Markdown también puede hacer referencia a:
+
+- 📃&amp;nbsp; Un formato de archivo (`.Rmd`)
+- 📦&amp;nbsp; El paquete R [`rmarkdown`](https://pkgs.rstudio.com/rmarkdown/)
+
+---
+background-image: url(https://bookdown.org/yihui/rmarkdown/images/cover.png)
+background-position: 800px 250px
+background-size: 230px
+
+# En otras palablas
+
+Es una herramienta que nos permite convertir un archivo con texto y código en R en varios tipos de:
+
+- Documentos: [HTML](https://bookdown.org/yihui/rmarkdown/html-document.html), [PDF](https://bookdown.org/yihui/rmarkdown/pdf-document.html), [Word](https://bookdown.org/yihui/rmarkdown/word-document.html)
+- Presentaciones: [PowerPoint](https://bookdown.org/yihui/rmarkdown/powerpoint-presentation.html), [Beamer](https://bookdown.org/yihui/rmarkdown/beamer-presentation.html)
+
+Y muchos más...
+
+- Documentos con [dashboards o Shiny aps](https://bookdown.org/yihui/rmarkdown/dashboards.html)
+- Presentaciones [xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html)
+- [Sitios web](https://bookdown.org/yihui/rmarkdown/websites.html)
+- [Libros](https://bookdown.org/yihui/rmarkdown/books.html)
+
+.footnote[📖&amp;nbsp; [R Markdown: The Definite Guide](https://bookdown.org/yihui/rmarkdown/)]
+
+---
+
+# ¿Cómo funciona el proceso?
+
+.pull-left[
+### Como autoras
+
+1. Creamos un documento `.Rmd`
+2. Escribimos texto y código R.
+3. Especificamos los parámetros de renderizado.
+4. *Tejemos* el documento, haciendo click en un botón.
+
+]
+
+.pull-right[
+
+### Detrás de cámara
+
+**rmarkdown** procesa el documento `.Rmd` usando [knitr](https://github.com/yihui/knitr/), y [pandoc](https://pandoc.org/).
+
+.center[![](https://es.r4ds.hadley.nz/images/RMarkdownFlow.png)]
+]
+
+.footnote[🧶&amp;nbsp; En inglés, *tejer* se escribe *knit*, y se pronuncia *nit*.]
+
+---
+class: ejercicio
+
+# 📝&amp;nbsp; Ejercicio: El proceso
+
+--
+
+## 1. Demuestro yo
+
+- Cómo crear un documento `.Rmd` con RStudio.
+- Cómo *tejer* el documento.
+
+--
+
+## 2. Experimentamos juntas
+
+--
+- Usando tu propia instalación de RStudio
+
+  - Si es la primera vez que utilizas R Markdown, RStudio abrirá una ventana pidiendo permiso para instalar ciertos paquetes. Acepta la instalación.
+
+--
+
+- O el proyecto RStudio Cloud: https://rstudio.cloud/project/2531715
+
+---
+class: inverse, bottom, left
+
+# Los elementos principales: Markdown, R y YAML
+### (Texto, código y metadatos)
+
+---
+
+# Los parámetros YAML
+
+.pull-left[
+- Definidos al principio de todo documento `.Rmd`.
+
+- Controlan el formato de los documentos de salida (e.g. PDF, Word, HTML).
+
+- Y para definir diferentes opciones según cada formato.
+]
+
+.pull-right[
+
+```markdown
+*---
+*title: "Analizando los capítulos de R-Ladies en LAC"
+*author: "María Paula Caldas"
+*output: 
+*  html_document:
+*    toc: true
+*    toc_float: true
+*  github_document: default
+*---
+
+## Importar los datos
+
+Los datos presentan los diferentes 
+capítulos de las R-Ladies...
+```
+
+]
+
+---
+class: ejercicio
+
+# 📝&amp;nbsp; Ejercicio: Los parámetros YAML
+
+--
+
+## 1. Demuestro yo
+
+- Cómo encuentrar cuales son las opciones de personalización disponibles de `html_document`.
+- Cómo tejer un RMarkdown a diferentes formatos de salida.
+
+--
+
+## 2. Experimentamos juntas
+
+- Crea un nuevo fichero RMarkdown con la ayuda de RStudio.
+- Escoje el formato `html_document` como formato de salida.
+- Intenta varios temas diferentes. ¿Cuál fue tu favorito?
+- Crea una tabla de contenidos flotante.
+
+---
+
+# La sintaxis Markdown
+
+.panelset[
+
+.panel[.panel-name[Encabezados]
+
+.pull-left[
+
+```md
+# Primer nivel
+## Segundo nivel
+### Tercer nivel
+#### Cuarto nivel
+#### Quinto nivel
+```
+
+].pull-right[
+
+# Primer nivel
+## Segundo nivel
+### Tercer nivel
+#### Cuarto nivel
+  
+]
+
+]
+
+.panel[.panel-name[Texto]
+
+.pull-left[
+
+```md
+Otra opción para ~~knitear~~
+tejer un documento `.Rmd` es 
+usando la función `render()` 
+del paquete __rmarkdown__.
+
+Pero la mayoría de las veces,
+es más fácil con el botton de 
+_Knit_ de RStudio.
+```
+
+].pull-right[
+
+Otra opción para ~~knitear~~
+tejer un documento `.Rmd` es 
+usando la función `render()` 
+del paquete __rmarkdown__.
+
+Pero la mayoría de las veces,
+es más fácil con el botton de 
+_Knit_ de RStudio.
+]
+
+&lt;br/&gt;
+
+&gt; 🙋&amp;nbsp; ¿Qué otra forma hay para escribir el texto en cursiva o negrita?
+
+]
+
+.panel[.panel-name[Listas]
+
+.pull-left[
+
+```md
+- Un elemento en lista no enumerada
+- Otro elemento
+  - Un subelemento
+  - Otro subelemento
+
+1. Elemento 1 en lista enumerada
+1. Elemento 2
+2. Elemento 3
+```
+
+].pull-right[
+
+- Un elemento en lista no enumerada
+- Otro elemento
+  - Un subelemento
+  - Otro subelemento
+
+1. Elemento 1 en lista enumerada
+1. Elemento 2
+2. Elemento 3
+
+]
+
+&lt;br/&gt;
+
+&gt; 💡&amp;nbsp; En las listas enumeradas, no es necesario seguir el conteo.
+
+]
+
+.panel[.panel-name[Imagenes]
+
+.pull-left[
+
+```md
+![Sticker rmarkdown](https://github.com/rstudio/rmarkdown/raw/master/man/figures/logo.png)
+```
+
+].pull-right[
+.center[
+![Sticker en forma de hexágono del paquete rmarkdown](https://github.com/rstudio/rmarkdown/raw/master/man/figures/logo.png)
+]
+]
+
+&gt; 🙋&amp;nbsp; ¿Para qué sirve el texto entre los corchetes?
+
+]
+
+.panel[.panel-name[Vínculos]
+
+.pull-left[
+
+```md
+[Guía de R Markdown](https://github.com/rstudio/cheatsheets/raw/master/translations/spanish/rmarkdown-2.0_Spanish.pdf)
+```
+
+].pull-right[
+
+[Guía de R Markdown](https://github.com/rstudio/cheatsheets/raw/master/translations/spanish/rmarkdown-2.0_Spanish.pdf)
+
+]
+
+&lt;br/&gt; 
+
+&gt; 🙋&amp;nbsp; Abre la guía. ¿En qué lugar de la guía encontramos información sobre el sintaxis Markdown?
+
+]
+
+]
+
+---
+class: ejercicio
+
+# 📝&amp;nbsp; Ejercicio: La sintaxis Markdown
+
+1. Crea un nuevo archivo `.Rmd` con ayuda de RStudio.
+
+1. Usando la [Guía de R Markdown](https://github.com/rstudio/cheatsheets/raw/master/translations/spanish/rmarkdown-2.0_Spanish.pdf), agrega los siguientes elementos a tu documento:
+  - Una nota al pie de página.
+  - Un tablero.
+  - Una cita en bloque.
+  
+1. Si tienes una versión reciente de RStudio (&gt;1.4). ¿Cómo harías para hacer estas tareas con el editor visual? Puedes usar `rstudioapi::getVersion()` para verificar tu versión.
+---
+
+# Código R dentro de línea
+
+.pull-left[
+
+```markdown
+## Reserven la fecha `r emo::ji("tada")`
+
+Quaridos amigos, 
+
+Faltan `r as.Date("2022-03-04") - Sys.Date()`
+días para mi próximo cumpleaños, y me gustaría 
+asegurarme que podré celebrarlo con ustedes.
+```
+]
+
+--
+
+.pull-right[
+
+## Reserven la fecha 🎉
+
+Quaridos amigos, 
+
+Faltan 300
+días para mi próximo cumpleaños, y me gustaría 
+asegurarme que podré celebrarlo con ustedes.
+
+]
+
+---
+
+# Código R en bloques
+
+.panelset[
+
+.panel[.panel-name[Resultados]
+
+.pull-left[
+
+````
+```{r}
+capitulos_lac &lt;- read.csv("https://raw.githubusercontent.com/mpaulacaldas/r-ladies-rmarkdown/master/capitulos_lac.csv")
+
+nrow(capitulos_lac)
+```
+````
+]
+
+.pull-right[
+
+
+```r
+capitulos_lac &lt;- read.csv("https://raw.githubusercontent.com/mpaulacaldas/r-ladies-rmarkdown/master/capitulos_lac.csv")
+
+nrow(capitulos_lac)
+```
+
+```
+## [1] 34
+```
+
+]
+
+
+]
+
+.panel[.panel-name[Figuras]
+
+.pull-left[
+
+````
+```{r}
+library(ggplot2)
+ggplot(capitulos_lac) + 
+  geom_bar(aes(pais))
+```
+````
+]
+
+.pull-right[
+
+
+```r
+library(ggplot2)
+ggplot(capitulos_lac) + 
+  geom_bar(aes(pais))
+```
+
+&lt;img src="index_files/figure-html/lacbars-1.png" width="504" /&gt;
+
+]
+
+
+]
+
+.panel[.panel-name[Tableros]
+
+.pull-left[
+
+````
+```{r}
+library(dplyr)
+capitulos_lac %&gt;% 
+  count(pais, sort = TRUE) %&gt;% 
+  knitr::kable()
+```
+````
+]
+
+.pull-right[
+
+
+```r
+library(dplyr)
+capitulos_lac %&gt;% 
+  count(pais, sort = TRUE) %&gt;% 
+  head() %&gt;% 
+  knitr::kable()
+```
+
+
+
+|pais      |  n|
+|:---------|--:|
+|Brasil    | 12|
+|Argentina |  9|
+|Chile     |  3|
+|México    |  3|
+|Ecuador   |  2|
+|Bolivia   |  1|
+
+]
+
+]
+
+]
+
+---
+
+# Opciones de bloques
+
+Las opciones de bloque controlan si el bloque de código es ejecutado, impreso, y si sus resultados serán insertados en el documento final.
+
+.pull-left[
+````
+*```{r, eval = FALSE}
+library(ggplot2)
+ggplot(capitulos_lac) + 
+  geom_bar(aes(pais))
+```
+````
+]
+
+.pull-right[
+
+- Están dentro de las llaves &lt;br&gt;`{r option=value}`
+
+- Con opciones separadas por comas&lt;br&gt;`{r option1=value, option2=value}`
+
+]
+
+.footnote[
+.small[
+📖&amp;nbsp; [Capítulo 27, R para Ciencia de Datos](https://es.r4ds.hadley.nz/r-markdown.html#opciones-de-los-bloques)
+]
+]
+
+---
+
+# Recetas frecuentes
+
+.panelset[
+
+.panel[.panel-name[eval]
+
+`eval = FALSE` muestra el código, pero no lo ejecuta.
+
+.pull-left[
+
+````
+*```{r, eval = FALSE}
+capitulos_lac &lt;- read.csv("https://raw.githubusercontent.com/mpaulacaldas/r-ladies-rmarkdown/master/capitulos_lac.csv")
+
+nrow(capitulos_lac)
+```
+````
+]
+
+.pull-right[
+
+
+```r
+library(dplyr)
+capitulos_lac &lt;- read.csv("https://raw.githubusercontent.com/mpaulacaldas/r-ladies-rmarkdown/master/capitulos_lac.csv")
+
+nrow(capitulos_lac)
+```
+
+]
+
+]
+
+.panel[.panel-name[echo]
+
+`echo = FALSE` esconde el código del bloque, pero lo ejecuta e imprime sus resultados.
+
+.pull-left[
+
+````
+*```{r, echo = FALSE}
+capitulos_lac &lt;- read.csv("https://raw.githubusercontent.com/mpaulacaldas/r-ladies-rmarkdown/master/capitulos_lac.csv")
+
+nrow(capitulos_lac)
+```
+````
+
+]
+
+.pull-right[
+
+
+```
+## [1] 34
+```
+]
+
+]
+
+.panel[.panel-name[include]
+
+`include = FALSE` ejecuta el código del bloque, pero no muestra el código ni imprime los resultados en el documento. 
+
+Los objetos creados en el bloque quedan disponibles para ser usados después en el documento.
+
+.pull-left[
+
+````
+*```{r, include = FALSE}
+capitulos_lac &lt;- read.csv("https://raw.githubusercontent.com/mpaulacaldas/r-ladies-rmarkdown/master/capitulos_lac.csv")
+
+nrow(capitulos_lac)
+```
+
+Hay `r nrow(capitulos_lac)` de 
+R-Ladies en Latinoamérica y el Caribe.
+````
+]
+
+.pull-right[
+
+
+
+Hay 34 en Latinoamérica y el Caribe.
+
+]
+
+
+]
+
+
+]
+
+---
+class: ejercicio
+
+# 📝&amp;nbsp; Ejercicio: El código R
+
+## 1. Demuestro yo
+
+- Cómo crear un bloque de código usando los atajos de teclado.
+- Cambiar las opciones de bloque usando RStudio.
+
+---
+class: ejercicio
+
+# 📝&amp;nbsp; Ejercicio: El código R
+
+## 2. Experimentemos juntas
+
+Tratemos de crear desde cero un reporte sobre los capítulos des las R-Ladies en Latinoamérica y el Caribe, con los siguientes elementos:
+
+- Un gráfico.
+- Código escondido.
+  
+Para leer los datos:
+  
+
+```r
+capitulos_lac &lt;- read.csv("https://raw.githubusercontent.com/mpaulacaldas/r-ladies-rmarkdown/master/capitulos_lac.csv")
+```
+
+---
+class: inverse, bottom, left
+
+# Ir más lejos
+
+---
+
+## Ir más lejos
+
+Esta presentación fue inspirada en los materiales de [Alison Hill](https://alison.rbind.io/), en particular:
+
+- [R Markdown Anatomy](https://rmd4pharma.netlify.app/static/slides/01-rmd-anatomy.html#1)
+- [An Introduction to R Markdown](https://apreshill.github.io/rmd4cdc/#1)
+
+Los siguientes libros son una excelente fuente de referencia:
+
+- [R para Ciencia de Datos](https://es.r4ds.hadley.nz/introducci%C3%B3n-18.html) (traducido al español)
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+- [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+
+---
+class: inverse, middle, left
+background-image: url(https://images.unsplash.com/photo-1595341595379-cf1cb694ea1f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1484&amp;q=80)
+background-size: cover
+
+# ¡Muchas gracias!
+# ¿Preguntas?
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"highlightLanguage": ["r", "css", "yaml"],
+"countIncrementalSlides": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
