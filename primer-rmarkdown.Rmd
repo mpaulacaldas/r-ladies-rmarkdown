@@ -1,0 +1,61 @@
+---
+title: "Notas de la presentación R-Ladies Puebla"
+author: "María Paula"
+date: "`r format(Sys.Date(), '%d/%m/%Y')`"
+output:
+  github_document: default
+  html_document:
+    toc: true
+    toc_float: true
+    theme: "yeti"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Primer encabezado
+
+No es necesario enumerar las notas de pie de página[^rstudio]. Tampoco tenemos que ponerlas al final del `.Rmd`.
+
+[^rstudio]: <http://rmarkdown.rstudio.com>
+
+El tablero de abajo fue incluido usando el *visual markdown editor*, que está disponible en las versiones más recientes de RStudio. Para centrar los elementos de la primera columna, volvimos a pasar a la vista normal.
+
+| Mi primera columna | Mi segunda columna | Mi tercera columna |
+|:------------------:|--------------------|--------------------|
+|         a          | b                  | c                  |
+|         d          | e                  | f                  |
+
+Podemos escribir en negrita usando **estrellas** o _guiones bajos_.
+
+El atajo para agregar un nuevo bloque de código es `Cmd + Alt + I`:
+
+```{r cars}
+summary(cars)
+```
+
+## Segundo encabezado
+
+Cambiar las opciones de bloque es fácil usando la rosca que aparece en el borde de la derecha del bloque en RStudio. 
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+```
+
+Se puede escribir HTML directamente cuando el formato de salida es `html_document` o `github_document`. Por ejemplo, el elemento de abajo es HTML.
+
+<details><summary> Algo escondido </summary>
+
+¡Hola!
+
+</details>
+
+> Así se escribe una cita de bloque.
+
+El paquete [emo](https://github.com/hadley/emo) sirve para agregar emojis a los documentos `r emo::ji("tada")` Para ver la lista de emojis asociados a una palabra:
+
+```{r}
+emo::ji_find("woman")
+```
+
