@@ -382,7 +382,7 @@ _Knit_ de RStudio.
 
 ].pull-right[
 .center[
-![Sticker en forma de hexágono del paquete rmarkdown](https://github.com/rstudio/rmarkdown/raw/master/man/figures/logo.png)
+![Sticker rmarkdown](https://github.com/rstudio/rmarkdown/raw/master/man/figures/logo.png)
 ]
 ]
 
@@ -434,7 +434,7 @@ class: ejercicio
 ```markdown
 ## Reserven la fecha `r knitr::inline_expr('emo::ji("tada")')`
 
-Quaridos amigos, 
+Queridos amigos, 
 
 Faltan `r knitr::inline_expr('as.Date("2022-03-04") - Sys.Date()')`
 días para mi próximo cumpleaños, y me gustaría 
@@ -448,7 +448,7 @@ asegurarme que podré celebrarlo con ustedes.
 
 ## Reserven la fecha `r emo::ji("tada")`
 
-Quaridos amigos, 
+Queridos amigos, 
 
 Faltan `r as.Date("2022-03-04") - Sys.Date()`
 días para mi próximo cumpleaños, y me gustaría 
