@@ -12,7 +12,7 @@ url_github: "https://github.com/mpaulacaldas"
 url_slides: "https://mpaulacaldas.github.io/r-ladies-rmarkdown"
 url_source: "https://github.com/mpaulacaldas/r-ladies-rmarkdown"
 url_rstudiocloud: "https://rstudio.cloud/project/2531715"
-twitter_card: "https://raw.githubusercontent.com/mpaulacaldas/r-ladies-rmarkdown/gh-pages/social-card.png"
+twitter_card: "https://raw.githubusercontent.com/mpaulacaldas/r-ladies-rmarkdown/gh-pages/share-card.png"
 background_position: "1050px 20px"
 background_size: "100px"
 output:
