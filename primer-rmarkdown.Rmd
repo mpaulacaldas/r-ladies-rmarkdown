@@ -1,7 +1,7 @@
 ---
 title: "Notas de la presentación R-Ladies Puebla"
 author: "María Paula"
-date: "`r format(Sys.Date(), '%d/%m/%Y')`"
+date: "08/05/2021"
 output:
   github_document: default
   html_document:
@@ -27,7 +27,7 @@ El tablero de abajo fue incluido usando el *visual markdown editor*, que está d
 |         a          | b                  | c                  |
 |         d          | e                  | f                  |
 
-Podemos escribir en negrita usando **estrellas** o _guiones bajos_.
+Podemos escribir en negrita usando **estrellas** o __guiones bajos__.
 
 El atajo para agregar un nuevo bloque de código es `Cmd + Alt + I`:
 

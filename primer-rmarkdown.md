@@ -17,7 +17,7 @@ los elementos de la primera columna, volvimos a pasar a la vista normal.
 |         a          | b                  | c                  |
 |         d          | e                  | f                  |
 
-Podemos escribir en negrita usando **estrellas** o *guiones bajos*.
+Podemos escribir en negrita usando **estrellas** o **guiones bajos**.
 
 El atajo para agregar un nuevo bloque de código es `Cmd + Alt + I`:
 
