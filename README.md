@@ -7,6 +7,7 @@
 Presentación y materiales para el taller de introducción a R Markdown, presentado en el meet-up de las R-Ladies Puebla.
 
 - Presentación: <https://mpaulacaldas.github.io/r-ladies-rmarkdown>
+- Video: <https://www.youtube.com/watch?v=jwEkmkSgfsg>
 - RStudio Cloud: <https://rstudio.cloud/project/2531715>
 - Evento: <https://www.meetup.com/rladies-puebla/events/277634772>
 
