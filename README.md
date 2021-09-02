@@ -11,7 +11,7 @@ Presentación y materiales para el taller de introducción a R Markdown, present
 - RStudio Cloud: <https://rstudio.cloud/project/2531715>
 - Evento: <https://www.meetup.com/rladies-puebla/events/277634772>
 
-*Extra:* El Rmd de genera la presentación xaringan se encuentra en la rama [`gh-pages`](https://mpaulacaldas.github.io/r-ladies-rmarkdown/tree/gh-pages) de este repositorio.
+*Extra:* El Rmd de genera la presentación xaringan se encuentra en la rama [`gh-pages`](https://github.com/mpaulacaldas/r-ladies-rmarkdown/tree/gh-pages) de este repositorio.
 
 ---
 
